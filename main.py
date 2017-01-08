@@ -2,7 +2,7 @@ import numpy as np
 import cv2
 
 cap = cv2.VideoCapture(0)
-smile_cascade = cv2.CascadeClassifier('haarcascade_smile.xml')
+smile_cascade = cv2.CascadeClassifier('hand_cascade_stage8.xml')
 while(True):
     ret, frame = cap.read()
 
