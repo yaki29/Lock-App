@@ -2,7 +2,7 @@ import cv2
 import numpy as np 
 
 image1 = cv2.imread("1.jpg")
-image2 = cv2.imread("4.jpg")
+image2 = cv2.imread("3.jpg")
 
 difference = cv2.subtract(image1, image2)
 
