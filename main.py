@@ -10,7 +10,7 @@ while(True):
     if np.any(smile_cascade.detectMultiScale(gray, 1.3, 5)):
     	smile = smile_cascade.detectMultiScale(gray, 1.3, 5)
     	print "hand found"
-    	break
+    	# break
     	for (x,y,w,h) in smile:
     		cv2.rectangle(frame, (x,y), (x+w, y+h), (255,0,0), 2)
     else:
@@ -18,6 +18,7 @@ while(True):
 
     cv2.imshow('frame',frame)
     if cv2.waitKey(1) & 0xFF == ord('q'):
+        print "q is pressed"
         break
 
 cap.release()

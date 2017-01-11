@@ -15,10 +15,6 @@ Builder.load_string('''
 			text: "hello"
 			on_press: root.Finger_gesture()
 
-
-
-
-
 ''')
 
 
@@ -29,8 +25,11 @@ class StartScreen(Screen):
 		while(True):
 		    ret, frame = cap.read()
 		    cv2.imshow('frame',frame)
+		    print "yash"
 		    if cv2.waitKey(1) & 0xFF == ord('q'):
-		        break
+		    	print "hey q pressed"
+		        cv2.destroyAllWindows()
+		        return 0
 		cap.release()
 		# cv2.destroyAllWindows()
 		
