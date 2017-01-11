@@ -1,17 +1,15 @@
-import cv2
-import numpy as np 
 
-image1 = cv2.imread("1.jpg")
-image2 = cv2.imread("3.jpg")
+import sys
+from kivy.base import runTouchApp
 
-difference = cv2.subtract(image1, image2)
+if __name__ == '__main__' and __package__ is None:
+    from os import sys, path
+    sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
-result = not np.any(difference)
-print difference
-print result
+from kivy.garden.mapview import MapView, MapSource
 
-if result is True:
-	print "Images are same"
+kwargs = {}
+if len(sys.argv) > 1:
+    kwargs["map_source"] = MapSource(url=sys.argv[1], attribution="")
 
-else:
-	print "Images are different"
+runTouchApp(MapView(**kwargs))
