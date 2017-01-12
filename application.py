@@ -30,7 +30,10 @@ class StartScreen(Screen):
 		    if np.any(smile_cascade.detectMultiScale(gray, 1.3, 5)):
 		    	smile = smile_cascade.detectMultiScale(gray, 1.3, 5)
 		    	print "hand found"
-		    	# break
+		    	cv2.destroyAllWindows()
+		        for i in range(1,5):
+		        	cv2.waitKey(1)
+		    	break
 		    	for (x,y,w,h) in smile:
 		    		cv2.rectangle(frame, (x,y), (x+w, y+h), (255,0,0), 2)
 		    else:
