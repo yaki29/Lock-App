@@ -15,11 +15,14 @@ Builder.load_string('''
 	
 	index: 0
 	cascade: 'haarcascade_frontalface_default.xml'
-	# on_matched: root.current.manager = 'application_screen'
+	on_match: root.change_scr()
 	BoxLayout: 
 		Label: 
-			text: "You Really have a nice face !!!"
+			text: "Same Screen"
 			font_size: 40
+		Button:
+			text: "change"
+			on_press: root.manager.current = "application_screen"
 
 ''')
 
@@ -27,7 +30,10 @@ Builder.load_string('''
 class StartScreen(Screen):
 	pass
 class LockScreen(FaceLock, Screen):
-	pass
+	def change_scr(self):
+		print "Screen Changing" 
+		sm.current = "application_screen"
+
 sm = ScreenManager(transition=FadeTransition())
 sm.add_widget(StartScreen(name="application_screen"))
 sm.add_widget(LockScreen(name="lock_screen"))
